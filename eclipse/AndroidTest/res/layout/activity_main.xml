@@ -1,0 +1,73 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.androidtest.MainActivity"
+    tools:ignore="MergeRootFrame" >
+
+     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+        
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView1" />
+    
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView2" />
+    
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView3" />
+    
+    
+     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+        
+	     <Button 
+	         android:id="@+id/button1" 
+	         android:text="OFF" 
+	         android:layout_width="wrap_content" 
+	         android:layout_height="wrap_content"
+	         android:onClick="onButton1"/>  
+	    
+	    <Button 
+	         android:id="@+id/button2" 
+	         android:text="开启可见" 
+	         android:layout_width="wrap_content" 
+	         android:layout_height="wrap_content"
+	         android:onClick="onButton2"/> 
+	    
+	    <Button 
+	         android:id="@+id/button3" 
+	         android:text="button3" 
+	         android:layout_width="wrap_content" 
+	         android:layout_height="wrap_content"
+	         android:onClick="onButton3"/>
+	    
+    </LinearLayout>
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal" >
+    <ListView
+        android:id="@+id/listView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+    </ListView>
+   	</LinearLayout>
+    </LinearLayout>
+    
+</FrameLayout>
