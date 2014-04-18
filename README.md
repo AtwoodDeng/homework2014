@@ -1,3 +1,9 @@
-** My tem code data for save  
+# 2014 code save
 
-**** dir: ~/tem
+## My tem code data for save  
+
+#### root dir: ~/tem
+
+### Collection:
+
+#### R( data minning )
