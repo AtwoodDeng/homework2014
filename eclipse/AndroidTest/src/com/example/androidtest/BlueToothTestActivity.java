@@ -13,6 +13,7 @@ import android.R.string;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -22,10 +23,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.os.Build;
 
 public class BlueToothTestActivity extends ActionBarActivity {
-
+	
 	Button btn_send;
 	EditText editText;
 	TextView textView;
@@ -38,6 +38,7 @@ public class BlueToothTestActivity extends ActionBarActivity {
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+		
 		System.out.println("on create");
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.blue_tooth_test);

@@ -41,6 +41,9 @@ p + geom_bar(position='fill')+opts(title = "Influence of personal loan on term d
 p <- ggplot(data=bank[bank$campaign<=20,],aes(x=campaign,fill=factor(y)))
 p + geom_bar(position='fill')+opts(title = "Influence of contact times on term deposit")
 
+#month
+p <- ggplot(data=bank,aes(x=month,fill=factor(y)))
+p + geom_bar(position='fill')+opts(title = "Influence of month on term deposit")
 
 #duration
 p <- (data=bank,aes(x=duration,fill=factor(y)))
@@ -48,6 +51,21 @@ p + geom_bar(position='dodge')+opts(title = "distrubution of duration of clients
 ageBank = bank[bank$age<51&bank$age>24,]
 p <- ggplot(data=bank[bank$duration<1000,],aes(x=duration,fill=factor(y)))
 p + geom_bar(position='fill')+opts(title = "Influence of durationon on term deposit")
+
+
+########### scatter plot #############
+# pdays and previous
+p<-ggplot(data=bank[bank$previous<100,],mapping = aes(x=pdays,y=previous,colour=y))
+p+geom_point()+opts(title="Influence of previous and pdays on y")
+
+# balance and duration
+p<-ggplot(data=bank,mapping = aes(x=duration,y=balance,colour=y))
+p+geom_point()+opts(title="Influence of balance and duration on y")
+
+# days
+p<-ggplot(data=bank,mapping = aes(x=day,y=duration,colour=y))
+p+geom_point()+opts(title="Influence of day on y")
+
 
 ########### correlation matrix #############
 # correlation matrix
@@ -81,3 +99,15 @@ abs_ycorm <- abs(ycorm);
 order_ycorm <- ycorm[order(abs_ycorm,decreasing=T)]
 barplot(order_ycorm[1:6],main="Main Features",col=diverge_hcl(6));
 show(order_ycorm)
+
+######## Random Tree #############
+bank=read.table("bank.csv",header=TRUE,sep=";")
+RandomForest <- randomForest(y ~ ., data=bank, ntree=30, nPerm=10,mtry=3,proximity=TRUE,importance=TRUE)
+show(RandomForest)
+
+plot(RandomForest)
+
+# predict contact
+bankContact = bank[bank$contact!="unknown",];
+rfContact<- randomForest(contact ~ ., data=bank, ntree=30, nPerm=10,mtry=3,proximity=TRUE,importance=TRUE)
+preContact <-predict(rfContact)
