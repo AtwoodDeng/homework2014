@@ -1,0 +1,902 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"rb",
+				"res_b"
+			],
+			[
+				"sis",
+				"SIFT_SIZE"
+			],
+			[
+				"im",
+				"img2gray"
+			],
+			[
+				"feat",
+				"features"
+			],
+			[
+				"cor",
+				"cor_R"
+			],
+			[
+				"fea",
+				"features"
+			],
+			[
+				"his",
+				"direct_hist"
+			],
+			[
+				"j",
+				"j_size"
+			],
+			[
+				"x",
+				"x_r"
+			],
+			[
+				"sif",
+				"SIFT_BLOCK_SIZE"
+			],
+			[
+				"nei",
+				"neig_pix"
+			],
+			[
+				"ind",
+				"indices"
+			],
+			[
+				"e",
+				"enumerate"
+			],
+			[
+				"hm",
+				"h_max2"
+			],
+			[
+				"hin",
+				"h_max_index"
+			],
+			[
+				"img",
+				"img1"
+			],
+			[
+				"ky",
+				"key_pts"
+			],
+			[
+				"in",
+				"indices"
+			],
+			[
+				"gra",
+				"gradient1d"
+			],
+			[
+				"non",
+				"NON_MAX_FLAG_MAX"
+			],
+			[
+				"sti",
+				"stitch_non_max"
+			],
+			[
+				"max",
+				"NON_MAX_SIZE"
+			],
+			[
+				"ch",
+				"check_in"
+			],
+			[
+				"NON",
+				"NON_MAX_FLAG_NON"
+			],
+			[
+				"is",
+				"is_cor"
+			],
+			[
+				"BO",
+				"MASK_BORDER"
+			],
+			[
+				"MASK",
+				"MASK_OUTER"
+			],
+			[
+				"OUT",
+				"MASK_OUTTER"
+			],
+			[
+				"back",
+				"back_lap"
+			],
+			[
+				"pr",
+				"print"
+			],
+			[
+				"get",
+				"getG"
+			],
+			[
+				"pi",
+				"pixel"
+			],
+			[
+				"np",
+				"np"
+			],
+			[
+				"ne",
+				"neighbor"
+			],
+			[
+				"n",
+				"neighbor"
+			],
+			[
+				"b",
+				"b_vpq"
+			],
+			[
+				"la",
+				"laplacian"
+			],
+			[
+				"sum",
+				"sumMat"
+			],
+			[
+				"showImga",
+				"showImgAtPos"
+			],
+			[
+				"sho",
+				"showBackImg"
+			],
+			[
+				"show",
+				"showFrontImg"
+			],
+			[
+				"poi",
+				"POISSON"
+			],
+			[
+				"po",
+				"poissonBtn"
+			],
+			[
+				"ph",
+				"photo"
+			],
+			[
+				"pho",
+				"PhotoImage"
+			],
+			[
+				"open",
+				"openBackBtn"
+			],
+			[
+				"Cock",
+				"CockButton"
+			],
+			[
+				"B",
+				"Bin_num"
+			],
+			[
+				"P",
+				"ParseA"
+			],
+			[
+				"ma",
+				"main	main()"
+			],
+			[
+				"m",
+				"main	method (main)"
+			],
+			[
+				"i",
+				"i_fron"
+			],
+			[
+				"a",
+				"AMOUNT_NUMBER"
+			],
+			[
+				"ba",
+				"i_back"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "src/ui.py",
+			"settings":
+			{
+				"buffer_size": 3221,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/graphic.py",
+			"settings":
+			{
+				"buffer_size": 9912,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/main.py",
+			"settings":
+			{
+				"buffer_size": 104,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "tkTest",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+			[
+				"py",
+				"Set Syntax: Python"
+			],
+			[
+				"build",
+				"Build: basic"
+			],
+			[
+				"buil",
+				"Build: Build"
+			],
+			[
+				"basi",
+				"Build: basic"
+			],
+			[
+				"por",
+				"Project: Refresh Folders"
+			],
+			[
+				"pro",
+				"Project: Save As"
+			],
+			[
+				"proj",
+				"Project: Save As"
+			],
+			[
+				"add f",
+				"Project: Add Folder"
+			],
+			[
+				"save as",
+				"Project: Save As"
+			],
+			[
+				"save a",
+				"File: Save All"
+			],
+			[
+				"ja",
+				"Set Syntax: Java"
+			],
+			[
+				"c",
+				"Set Syntax: C"
+			],
+			[
+				"c++",
+				"Set Syntax: C++"
+			],
+			[
+				"ter",
+				"Open in terminal"
+			],
+			[
+				"term",
+				"Open in terminal"
+			],
+			[
+				"pac",
+				"Package Control: List Packages"
+			],
+			[
+				"pacin",
+				"Package Control: Install Package"
+			],
+			[
+				"pain",
+				"Package Control: Install Package"
+			],
+			[
+				"",
+				"Package Control: Install Package"
+			],
+			[
+				"pa",
+				"Package Control: Disable Package"
+			],
+			[
+				"set py",
+				"Set Syntax: Python"
+			],
+			[
+				"setr",
+				"Set Syntax: R"
+			],
+			[
+				"set tex",
+				"Set Syntax: TeX"
+			],
+			[
+				"set t",
+				"Set Syntax: Tcl"
+			],
+			[
+				"setp",
+				"Set Syntax: Python"
+			],
+			[
+				"set c",
+				"Set Syntax: C++"
+			],
+			[
+				"set ja",
+				"Set Syntax: Java"
+			],
+			[
+				"paccon",
+				"Package Control: Disable Package"
+			],
+			[
+				"setc+",
+				"Set Syntax: C++"
+			],
+			[
+				"setj",
+				"Set Syntax: Java"
+			],
+			[
+				"cloa",
+				"File: Close All"
+			],
+			[
+				"cloal",
+				"File: Close All"
+			],
+			[
+				"clos",
+				"File: Close All"
+			],
+			[
+				"previ",
+				"Bookmarks: Select Previous"
+			],
+			[
+				"previou",
+				"Bookmarks: Select Previous"
+			],
+			[
+				"def",
+				"Preferences: Settings - Default"
+			],
+			[
+				"use",
+				"Preferences: Settings - User"
+			],
+			[
+				"p",
+				"Package Control: Install Package"
+			],
+			[
+				"user",
+				"Preferences: Settings - User"
+			],
+			[
+				"soda",
+				"Preferences: Package Control Settings – Default"
+			],
+			[
+				"shell",
+				"Set Syntax: Shell Script (Bash)"
+			],
+			[
+				"conpa",
+				"Package Control: Remove Package"
+			]
+		],
+		"width": 449.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib.request,os;",
+			"ls",
+			"cd ..",
+			"ls"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/atwood/Documents/aborad/indieCade/translation/submit.html",
+		"/Users/atwood/tem/python/gra/gra.sublime-project",
+		"/Users/atwood/tem/python/gra/gra.sublime-workspace",
+		"/Users/atwood/tem/python/gra/lab1.py",
+		"/Users/atwood/Downloads/README.txt",
+		"/Users/atwood/Desktop/mail",
+		"/mail",
+		"/Users/atwood/Desktop/404-660-2926",
+		"/Users/atwood/Downloads/CEACAA0041LIEW (1).dat",
+		"/Users/atwood/Desktop/lab7 实验报告",
+		"/Users/atwood/Desktop/TO DO LIST",
+		"/Users/atwood/Documents/course/graphic/review",
+		"/Users/atwood/Documents/course/data mining/期中",
+		"/Users/atwood/tem/Wakaka/doc/串口协议.txt",
+		"/Users/atwood/Documents/course/data mining/project1/project1/dataset/bank/bank-names.txt",
+		"/Users/atwood/tem/README.md",
+		"/Users/atwood/Downloads/54340347_5_homework4_fourier (1).txt",
+		"/Users/atwood/Downloads/54340347_5_homework4_fourier.txt",
+		"/Users/atwood/Desktop/R plan",
+		"/Users/atwood/Documents/course/data mining/project1/project1/R语言  visualization.txt",
+		"/Users/atwood/Desktop/report.txt",
+		"/Users/atwood/Downloads/卡夫卡城堡.txt",
+		"/Users/atwood/Documents/course/OS/midterm_exa/remember",
+		"/Users/atwood/Documents/course/OS/midterm_exa/answer",
+		"/Users/atwood/Documents/course/OS/midterm_exa/answer2011",
+		"/Users/atwood/Desktop/travel",
+		"/Users/atwood/Desktop/Rules of Play",
+		"/Users/atwood/Documents/course/architecture/lab1/lab1/linux/Makefile",
+		"/Users/atwood/Desktop/plan",
+		"/Users/atwood/Desktop/untitled",
+		"/Users/atwood/Documents/GRE/From the article, it was assumed that. Yet some qu",
+		"/Users/atwood/Documents/GRE/reading record1",
+		"/Users/atwood/Documents/GRE/AW/exer/i3",
+		"/Users/atwood/Documents/GRE/AW/exer/swedis physical sci Arrh  => reation rate = temp",
+		"/Users/atwood/Documents/GRE/AW/exer/A5",
+		"/Users/atwood/Documents/GRE/AW/exer/i2",
+		"/Users/atwood/Documents/GRE/AW/exer/a4",
+		"/Users/atwood/Documents/GRE/reading record",
+		"/Users/atwood/Documents/GRE/AW/exer/a1",
+		"/Users/atwood/Documents/GRE/背单词",
+		"/Users/atwood/Downloads/FingerGestures v3.1.txt",
+		"/Users/atwood/Desktop/school",
+		"/Users/atwood/Documents/mygame/prototype1/blind boy",
+		"/Users/atwood/tem/unitys/MyTest/README.md",
+		"/Users/atwood/Documents/course/OS/record",
+		"/Users/atwood/Desktop/pratice",
+		"/Users/atwood/Downloads/33703562_1_homework1_point_processing (1)/homework1-point processing.txt",
+		"/Users/atwood/Downloads/33703562_1_homework1_point_processing/homework1-point processing.txt",
+		"/Users/atwood/Downloads/33703562_1_homework1_point_processing (1)/ss",
+		"/Users/atwood/Documents/course/OS/homework/ucore/ucore-lab2/lab2-report.txt",
+		"/Users/atwood/tem/unitys/MyTest/Assets/MyAssets/idea/rule.txt",
+		"/Users/atwood/Documents/course/art/record",
+		"/Users/atwood/Desktop/script",
+		"/Users/atwood/Downloads/config (1).txt",
+		"/Users/atwood/Downloads/config.txt",
+		"/Users/atwood/Documents/course/OS/homework/lab1.txt",
+		"/Users/atwood/.ssh/config",
+		"/Users/atwood/Documents/course/OS/homework/ucore/ucore-lab1/proj3.1/kern/debug/kdebug.c",
+		"/Users/atwood/Downloads/ucore/ucore-lab1/lab1-report.txt",
+		"/Users/atwood/Documents/course/data mining/RECORE.md",
+		"/Users/atwood/Documents/course/OS/homework/ucore/ucore-lab1/proj4/kern/trap/trap.h",
+		"/Users/atwood/Documents/course/OS/homework/ucore/ucore-lab1/proj4/kern/mm/mmu.h",
+		"/Users/atwood/Documents/course/OS/homework/ucore/ucore-lab1/proj4/kern/mm/memlayout.h",
+		"/Users/atwood/Documents/course/OS/homework/ucore/ucore-lab1/proj4/kern/trap/trap.c",
+		"/Users/atwood/Documents/course/OS/homework/ucore/ucore-lab1/proj4/tools/vector.c",
+		"/Users/atwood/Documents/course/OS/homework/ucore/ucore-lab1/proj4/libs/types.h",
+		"/Users/atwood/Desktop/Dear Jessica Trybus,",
+		"/Users/atwood/Documents/course/architecture/w2",
+		"/Users/atwood/Documents/aborad/interview/NYU面经4",
+		"/Users/atwood/Documents/aborad/interview/NYU面经2",
+		"/Users/atwood/Documents/aborad/interview/NYU面经3",
+		"/Users/atwood/Documents/aborad/interview/计算机程序设计艺术(中文版)pdf三卷合集/NYU面经",
+		"/Users/atwood/Desktop/Dear Professor Jim Whitehead,",
+		"/Dear Professor Jim Whitehead,",
+		"/Users/atwood/Desktop/Dear Professor Brenda Bakker Harger,",
+		"/Users/atwood/Desktop/temp",
+		"/Users/atwood/Documents/course/OS/问卷.txt",
+		"/Users/atwood/Documents/course/2013fall/HCI/大实验.txt",
+		"/Users/atwood/Documents/course/construct/rand.cpp",
+		"/Users/atwood/Documents/course/construct/计原01-05.doc",
+		"/Users/atwood/Documents/course/construct/2011TM.txt",
+		"/Users/atwood/Documents/course/network/questions",
+		"/Volumes/GoneHome/Attributions.txt",
+		"/Volumes/GoneHome/Localization-howto.txt",
+		"/Users/atwood/tem/eclipse/PPA3/result/t6.decaf",
+		"/Users/atwood/tem/eclipse/PPPA3/result/t10.decaf",
+		"/Users/atwood/tem/eclipse/PPPA3/TestCases/S3/t10.decaf",
+		"/Users/atwood/tem/eclipse/PPPA3/TestCases/S3/t9.decaf",
+		"/Users/atwood/Documents/course/construct/2009TM",
+		"/Users/atwood/Documents/course/construct/2010TM.txt",
+		"/Users/atwood/Documents/course/compile/practise.txt",
+		"/Users/atwood/Downloads/779005505_7_score2013.txt",
+		"/Users/atwood/Documents/course/compile/2012TM.txt",
+		"/Users/atwood/Documents/course/network/2012选择.docx",
+		"/Users/atwood/Downloads/信号SRT提交/信号SRT提交/源代码/统计时使用程序/readme.txt",
+		"/Users/atwood/Downloads/信号SRT提交/信号SRT提交/源代码/聚类分析与多路跟踪/readme.txt",
+		"/Users/atwood/Downloads/信号SRT提交/信号SRT提交/源代码/激励点检测/批量wav文件激励点检测/readme.txt",
+		"/Users/atwood/Downloads/信号SRT提交/信号SRT提交/源代码/激励点检测/批量wav文件激励点检测/create_EE2.m",
+		"/Users/atwood/Downloads/信号SRT提交/信号SRT提交/源代码/激励点检测/单个wav文件激励点检测/stim_ana2.m",
+		"/Users/atwood/Downloads/信号SRT提交/信号SRT提交/源代码/一维网格拟合/批量拟合分析比对/readme.txt",
+		"/Users/atwood/Documents/course/signal/SRT报告/原始数据/test_stim_num.txt",
+		"/Users/atwood/Documents/course/signal/SRT报告/原始数据/double_peak.txt",
+		"/Users/atwood/Documents/course/signal/SRT报告/原始数据/test_filter.txt",
+		"/Users/atwood/Documents/course/signal/SRT报告/原始数据/out.txt",
+		"/Users/atwood/Documents/course/network/2012TM.txt",
+		"/Users/atwood/Library/Mail/V2/IMAP-new_146675@appleimap.163.com/Sent Messages.mbox/EDA5509C-F3B8-43C2-9DFF-03A15645F936/Data/Attachments/210/2/tem.txt",
+		"/Users/atwood/Documents/course/network/question",
+		"/Users/atwood/Documents/course/construct/2009资料",
+		"/Users/atwood/tem/eclipse/PPPA3/TestCases/S3/t5.decaf",
+		"/Users/atwood/tem/eclipse/PPPA3/TestCases/S3/t6.decaf",
+		"/Users/atwood/Desktop/srt plane",
+		"/Users/atwood/Downloads/结果分析.txt",
+		"/Users/atwood/Documents/course/software/SE2009.txt",
+		"/Users/atwood/Downloads/bpm.txt",
+		"/Users/atwood/Downloads/bpm",
+		"/Users/atwood/tem/matlab/cut_files.m",
+		"/Users/atwood/tem/practice/c/record",
+		"/Users/atwood/tem/practice/c/hello/apple",
+		"/Users/atwood/tem/practice/c/age_sort.cpp",
+		"/Users/atwood/tem/practice/c/class-defination",
+		"/Users/atwood/tem/practice/c/hw.cpp",
+		"/Users/atwood/tem/practice/c/hw",
+		"/Users/atwood/tem/practice/c/file",
+		"/Users/atwood/tem/practice/c/odd-even-sort",
+		"/Users/atwood/tem/practice/c/odd-even-sort.cpp",
+		"/Users/atwood/tem/practice/c/age_sort",
+		"/Users/atwood/Documents/course/computerNetwork/homework/滑动窗口/slide_window.cpp",
+		"/Users/atwood/Documents/course/computerNetwork/homework/RIP/rip.cpp"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"linalg",
+			"check",
+			"res",
+			"check_in",
+			"pixel_dict",
+			"r",
+			"point",
+			"ny",
+			"')\n",
+			"opframe",
+			"openbackbtn",
+			"bluetooth",
+			"bluetoothsocket",
+			"createRfcommSocketToServiceRecord",
+			"uuid",
+			"University",
+			"dpl",
+			"gd_ktext",
+			"IDT_PD",
+			"DPL",
+			"and",
+			"sign",
+			"-N -e",
+			"window",
+			"initfd",
+			"start_ftp",
+			"total",
+			"gettotal",
+			"544",
+			"???",
+			"??",
+			"???",
+			"??",
+			"???",
+			"??",
+			"qyj",
+			">\n",
+			"repeat",
+			"cmd",
+			"run_int",
+			"run\n",
+			"SW",
+			"run_int",
+			"\"int",
+			"kernel_run",
+			"kern",
+			"run_G",
+			"\"int",
+			"\"ing",
+			"\"int",
+			"“int",
+			"中断",
+			"adv_reg_x",
+			"reg_T",
+			"T ",
+			"pc",
+			"varref",
+			"vardef",
+			"formals",
+			"arrtype",
+			"ctrl+p",
+			"三国杀"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"pixel",
+			"if_win",
+			"tw5",
+			"MW2",
+			"MW1",
+			"TW1",
+			"MA3",
+			"MA2",
+			"MA1",
+			"FA3",
+			"FA2",
+			"FA1",
+			"T5",
+			"T4",
+			"T3",
+			"T2",
+			"DYQ"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "src/ui.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3221,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3221,
+								3221
+							]
+						],
+						"settings":
+						{
+							"hasHeader": false,
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1217.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "src/graphic.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 9912,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								9905,
+								9905
+							]
+						],
+						"settings":
+						{
+							"hasHeader": false,
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"translate_tabs_to_spaces": false,
+							"word_wrap": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 5128.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "src/main.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 104,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								84,
+								84
+							]
+						],
+						"settings":
+						{
+							"hasHeader": false,
+							"syntax": "Packages/Python/Python.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 22.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.ShellCommand":
+	{
+		"height": 132.0
+	},
+	"output.exec":
+	{
+		"height": 175.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"project": "gra.sublime-project",
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				".su",
+				"gra.sublime-project"
+			],
+			[
+				"",
+				"c/age_sort.cpp"
+			],
+			[
+				"~/tem",
+				"~/tem/eclipse/test.java"
+			],
+			[
+				"~",
+				"~/tem/eclipse/test.java"
+			],
+			[
+				"~/",
+				"~/tem/eclipse/test.java"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 107.0,
+		"selected_items":
+		[
+			[
+				"ch",
+				"check_in"
+			],
+			[
+				"chei",
+				"check_in"
+			]
+		],
+		"width": 392.0
+	},
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 153.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+		"max_columns": 3
+	}
+}

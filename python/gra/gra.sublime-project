@@ -1,0 +1,33 @@
+{
+	"build_systems":
+	[
+	{
+		"cmd":
+		[
+		    "python",
+		    "src/main.py"
+		],
+		"name" : "tkTest",
+		"variants":
+		[
+		   {
+		   	  "cmd":
+		   	  [
+		   	      "python",
+		   	      "src/main.py"
+		   	  ],
+		   	  "name" : "basic"
+		   }
+		],
+		"path": "/opt/local/bin:/opt/local/sbin:/opt/local/lib",
+		"working_dir": "${project_path}"
+	}
+	],
+	"folders":
+	[
+		{
+			"follow_symlinks": true,
+			"path": "."
+		}
+	]
+}
