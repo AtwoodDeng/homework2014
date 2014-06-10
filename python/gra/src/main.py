@@ -1,9 +1,8 @@
 import sys
 from ui import *
-
-def main(argv):
-	ui = UI()
-
+from edit import *
 
 if __name__ == '__main__':
-	main(sys.argv[1:])
+	# edit_poisson()
+	# edit_stitch()
+    ui = UI()

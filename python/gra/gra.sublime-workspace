@@ -4,6 +4,82 @@
 		"selected_items":
 		[
 			[
+				"tran",
+				"trans_m_t"
+			],
+			[
+				"tra",
+				"trans_m"
+			],
+			[
+				"tr",
+				"trans_m_t"
+			],
+			[
+				"trans",
+				"trans_mat"
+			],
+			[
+				"sti",
+				"stitch_is_cor"
+			],
+			[
+				"showim",
+				"showImgAtPos"
+			],
+			[
+				"fo",
+				"fontImage"
+			],
+			[
+				"po",
+				"posY"
+			],
+			[
+				"transform",
+				"transformAndAdd"
+			],
+			[
+				"the",
+				"theta"
+			],
+			[
+				"ind",
+				"indc2"
+			],
+			[
+				"desc",
+				"desc2"
+			],
+			[
+				"math",
+				"match"
+			],
+			[
+				"indc",
+				"indc2"
+			],
+			[
+				"resm",
+				"res_mat"
+			],
+			[
+				"res",
+				"res_mat"
+			],
+			[
+				"fea",
+				"feature"
+			],
+			[
+				"ne",
+				"neighbors"
+			],
+			[
+				"coni",
+				"continue"
+			],
+			[
 				"rb",
 				"res_b"
 			],
@@ -24,10 +100,6 @@
 				"cor_R"
 			],
 			[
-				"fea",
-				"features"
-			],
-			[
 				"his",
 				"direct_hist"
 			],
@@ -46,10 +118,6 @@
 			[
 				"nei",
 				"neig_pix"
-			],
-			[
-				"ind",
-				"indices"
 			],
 			[
 				"e",
@@ -82,10 +150,6 @@
 			[
 				"non",
 				"NON_MAX_FLAG_MAX"
-			],
-			[
-				"sti",
-				"stitch_non_max"
 			],
 			[
 				"max",
@@ -136,10 +200,6 @@
 				"np"
 			],
 			[
-				"ne",
-				"neighbor"
-			],
-			[
 				"n",
 				"neighbor"
 			],
@@ -170,10 +230,6 @@
 			[
 				"poi",
 				"POISSON"
-			],
-			[
-				"po",
-				"poissonBtn"
 			],
 			[
 				"ph",
@@ -227,7 +283,7 @@
 			"file": "src/ui.py",
 			"settings":
 			{
-				"buffer_size": 3221,
+				"buffer_size": 5404,
 				"line_ending": "Unix"
 			}
 		},
@@ -235,7 +291,15 @@
 			"file": "src/graphic.py",
 			"settings":
 			{
-				"buffer_size": 9912,
+				"buffer_size": 15110,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/edit.py",
+			"settings":
+			{
+				"buffer_size": 828,
 				"line_ending": "Unix"
 			}
 		},
@@ -243,7 +307,7 @@
 			"file": "src/main.py",
 			"settings":
 			{
-				"buffer_size": 104,
+				"buffer_size": 124,
 				"line_ending": "Unix"
 			}
 		}
@@ -423,7 +487,7 @@
 				"Package Control: Remove Package"
 			]
 		],
-		"width": 449.0
+		"width": 521.0
 	},
 	"console":
 	{
@@ -447,8 +511,9 @@
 	},
 	"file_history":
 	[
-		"/Users/atwood/Documents/aborad/indieCade/translation/submit.html",
 		"/Users/atwood/tem/python/gra/gra.sublime-project",
+		"/Users/atwood/tem/python/gra/README.txt",
+		"/Users/atwood/Documents/aborad/indieCade/translation/submit.html",
 		"/Users/atwood/tem/python/gra/gra.sublime-workspace",
 		"/Users/atwood/tem/python/gra/lab1.py",
 		"/Users/atwood/Downloads/README.txt",
@@ -573,8 +638,7 @@
 		"/Users/atwood/tem/practice/c/odd-even-sort",
 		"/Users/atwood/tem/practice/c/odd-even-sort.cpp",
 		"/Users/atwood/tem/practice/c/age_sort",
-		"/Users/atwood/Documents/course/computerNetwork/homework/滑动窗口/slide_window.cpp",
-		"/Users/atwood/Documents/course/computerNetwork/homework/RIP/rip.cpp"
+		"/Users/atwood/Documents/course/computerNetwork/homework/滑动窗口/slide_window.cpp"
 	],
 	"find":
 	{
@@ -593,6 +657,17 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"trans_m",
+			"tostring",
+			"showImg",
+			"linalg",
+			"lstsq",
+			"return",
+			"color",
+			"direct_hist",
+			"print",
+			"direct_hist",
+			"check_in",
 			"linalg",
 			"check",
 			"res",
@@ -689,7 +764,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 3,
 			"sheets":
 			[
 				{
@@ -698,15 +773,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3221,
+						"buffer_size": 5404,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3221,
-								3221
+								5227,
+								5227
 							]
 						],
 						"settings":
@@ -716,10 +791,10 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1217.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
@@ -728,15 +803,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 9912,
+						"buffer_size": 15110,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								9905,
-								9905
+								5160,
+								5160
 							]
 						],
 						"settings":
@@ -747,27 +822,57 @@
 							"word_wrap": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 5128.0,
+						"translation.y": 2921.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "src/main.py",
+					"file": "src/edit.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 104,
+						"buffer_size": 828,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								84,
-								84
+								725,
+								725
+							]
+						],
+						"settings":
+						{
+							"hasHeader": false,
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "src/main.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 124,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								114,
+								114
 							]
 						],
 						"settings":
@@ -779,7 +884,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 0,
 					"type": "text"
 				}
 			]
@@ -787,7 +892,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 22.0
+		"height": 23.0
 	},
 	"input":
 	{
@@ -822,7 +927,7 @@
 	},
 	"output.exec":
 	{
-		"height": 175.0
+		"height": 184.0
 	},
 	"output.find_results":
 	{
@@ -872,9 +977,37 @@
 	},
 	"select_symbol":
 	{
-		"height": 107.0,
+		"height": 87.0,
 		"selected_items":
 		[
+			[
+				"from",
+				"getTransformMat"
+			],
+			[
+				"gett",
+				"getTransformMat"
+			],
+			[
+				"dir",
+				"direct_hist"
+			],
+			[
+				"genb",
+				"gen_block"
+			],
+			[
+				"sift",
+				"sift"
+			],
+			[
+				"c",
+				"check_in"
+			],
+			[
+				"",
+				"check_in"
+			],
 			[
 				"ch",
 				"check_in"

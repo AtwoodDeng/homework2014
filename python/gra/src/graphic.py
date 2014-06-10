@@ -6,11 +6,12 @@ import scipy.sparse.linalg
 from math import ceil, exp, pi, cos, sin
 from scipy.ndimage import convolve1d, gaussian_filter
 from sklearn.neighbors import NearestNeighbors
+from numpy.linalg import inv
 
 ############# poisson ###########
 
 MASK_LIMIT_LIGHT=240
-POISSON_ALPHA = 0.3
+POISSON_ALPHA = 0.4
 MASK_BORDER = 3
 MASK_INNER = 1
 MASK_EDGE = 2
@@ -19,11 +20,12 @@ CORNER_THRESHOLD = 500
 
 
 GRAD_KERN = np.array([1, 0, -1], dtype=np.float)
-NON_MAX_SIZE = (3,3)
+NON_MAX_SIZE = (6,6)
 NON_MAX_FLAG_MAX = 1
 NON_MAX_FLAG_NON = 0
-SIFT_SIZE = (4,4)
-SIFT_BLOCK_SIZE = (16,16)
+SIFT_SIZE = (8,8)
+SIFT_BLOCK_SIZE = (32,32)
+IGNORE_K = 2
 
 def neighbor(p):
 	(i,j) = p
@@ -105,6 +107,7 @@ def poisson_blending(back,front,pos,size,alpha):
 	[bw,bh,bd] = back.shape
 	[w,h,d] = front.shape
 
+	print '======= begin blending ====='
 	x=pos[1]-w/2
 	if x < 0 : x = 0
 	if x >= bw-w : x = bw-w-1
@@ -112,8 +115,10 @@ def poisson_blending(back,front,pos,size,alpha):
 	if y < 0 : y = 0
 	if y >= bh-h : y = bh-h-1
 
+
 	mask = from_mat_to_mask(front)
 	make_border(mask)
+	print '====== find border ======'
 
 	# in order to work out :
 	# |Np|f_p - sum(f_q) = sum(f'_q) + sum(v_pq)
@@ -134,13 +139,14 @@ def poisson_blending(back,front,pos,size,alpha):
 	back_lap = laplacian(back[x:x+w,y:y+h])
 	grad_mix = alpha * front_lap + (1-alpha)*back_lap
 
+
 	# we do this in each channel of the matrix
 	for channel in range(0,d):
 		print '===== channel %d ========' % (channel)
 		b_vpq = np.ndarray([nPix],dtype=np.int32)
 		A_in  = scipy.sparse.dok_matrix((nPix,nPix),dtype=np.int32)
 		for i in range(0 , nPix):
-			if i % 1000 == 0 :
+			if i % 5000 == 0 :
 				print '====== i = %d ======' %(i)
 			pixel = ind_to_pixel[i]
 			if mask[pixel] == MASK_BORDER: # at border
@@ -153,18 +159,15 @@ def poisson_blending(back,front,pos,size,alpha):
 					if pixel_dict[px] > 0:
 						A_in[i,pixel_dict[px]] = -1
 				A_in[i,i] = 4
-				b_vpq[i] = grad_mix[pixel][channel]
+				b_vpq[i] = -grad_mix[pixel][channel]
 
 		# solve the equation Ax = b
 		x_vec = scipy.sparse.linalg.spsolve(A_in.tocsc() , b_vpq)
-		for px in x_vec:
-			if ( px > 255):
-				print 'find > 255'
-			if ( px < 0 ):
-				print 'find < 0'
-			px = 254 if px > 254 else px
-			px = 1 if px < 1 else px
 		for i,px in enumerate(ind_to_pixel):
+			if x_vec[i] > 255:
+				x_vec[i] = 255
+			if x_vec[i] < 1:
+				x_vec[i] = 1
 			res[px[0]+x,px[1]+y,channel] = np.int8(x_vec[i])
 
 	return res
@@ -186,11 +189,13 @@ def stitch_non_max(img):
 	for i in range(w):
 		for j in range(h):
 			res[i,j,2] = 255 if non_max[i,j] ==  NON_MAX_FLAG_MAX else res[i,j,2];
+			res[i,j,1] = 255 if non_max[i,j] ==  NON_MAX_FLAG_MAX else res[i,j,2];
+			res[i,j,0] = 255 if non_max[i,j] ==  NON_MAX_FLAG_MAX else res[i,j,2];
 
 	return res
 
 
-def stitch(img1,img2):
+def stitch(img1,img2,step = 0):
 	# cor_R = img2harris_R(img2)
 	# is_cor = cor_R > CORNER_THRESHOLD
 	# non_max = non_max_sup(cor_R,NON_MAX_SIZE)
@@ -199,18 +204,12 @@ def stitch(img1,img2):
 
 	# print sift( img2gray(img1) , (100,100) , 5 )
 
-	print '========= begin stitch =========='
+	if step == 1 :
+		return stitch_is_cor(img1)
+	if step == 2 :
+		return stitch_non_max(img1)
 
-	# indc1 = np.array([[50,70],[250,350]])
-	# indc2 = np.array([[40,30],[260,340]])
-	# match = np.array([1,0])
-	# return feature_match_img(img1,indc1,img2,indc2,match)
-
-	theta = 30
-	trans_m = np.array([[cos(theta),sin(theta)],[-sin(theta),cos(theta)]])
-	trans_b = np.array([[5],[20]])
-	transformAndAdd(img1,img2,trans_m,trans_b)
-
+	print '========= begin stitch %d ==========' %(step)
 	print '========= get features =========='
 	fea_img = []
 	fea_ind_img = []
@@ -221,6 +220,8 @@ def stitch(img1,img2):
 		is_cor = cor_R > CORNER_THRESHOLD
 		non_max = non_max_sup(cor_R,NON_MAX_SIZE)
 		key_mat = is_cor*non_max
+		if step == 3:
+			return key_mat * 150 + img1[:,:,0] / 2
 		key_pts = np.transpose(np.where(key_mat))
 		print 'find all key points'
 		fea_pts = []
@@ -242,7 +243,6 @@ def stitch(img1,img2):
 
 	dists, match = nbrs.kneighbors(desc1)
 	mmatch = []
-	print desc2
 	for i in range(len(match)):
 		d0 = desc1[i]
 		d1 = desc2[match[i,0]]
@@ -254,25 +254,28 @@ def stitch(img1,img2):
 		p1 = indc2[match[i,0]]
 		h,w,k = img2.shape
 
-
-		if ((sd1/sd2) > 2 or (sd2/sd1) > 2) and (p0[1] > p1[1] + w / 3):
-
+		if ((sd1/sd2) > IGNORE_K or (sd2/sd1) > IGNORE_K ) and (p0[1] > p1[1] + w / 3):
 			mmatch.append(match[i,0])
-			print 'match'
-			print desc1[i]
-			print desc2[match[i,0]]
 		else:
 			mmatch.append(-1)
 
+	if step == 4 :
+		return feature_match_img(img1,indc1,img2,indc2,mmatch)
+
 	# return feature_match_img(img1,indc1,img2,indc2,mmatch)
 
-	print 'transform the image'
+	print '===== transform the image ======'
 	pts1 = []
 	pts2 = []
 	for i in range(len(mmatch)):
-		pts1.append(indc1[i])
-		pts2.append(indc2[mmatch[i]])
-	trans_m ,trans_b = getTransformMat(pts1,pts2)
+		if mmatch[i] >= 0 :
+			pts1.append(indc1[i])
+			pts2.append(indc2[mmatch[i]])
+	trans_m ,trans_b = getTransformMat(pts2,pts1)
+
+	print 'trans m and trans_b'
+	print trans_m
+	print trans_b
 
 	return transformAndAdd(img1,img2,trans_m,trans_b)
 
@@ -289,7 +292,7 @@ def feature_match_img(img1,indc1,img2,indc2,match):
 	print 'len %d %d ' % (len(indc1),len(indc2))
 
 	#for i in range(len(match)):
-	for i in range(len(match)):
+	for i in range(max(len(match),100)):
 		if ( match[i] == -1 ):
 			continue
 		p1 = (indc1[i][1],indc1[i][0])
@@ -428,8 +431,8 @@ def sift(mat,p,size):
 
 	return features
 
-def getTransformMat(pts1,pts2):
-	pnum = np.min(len(pts1),len(pts2))
+def getTransformMat(pts_from,pts_to):
+	pnum = min(len(pts_from),len(pts_to))
 	if pnum == 0 :
 		print 'no points to match'
 		return 0.0
@@ -437,59 +440,133 @@ def getTransformMat(pts1,pts2):
 	A = np.zeros((2*pnum,6),np.float)
 	b = np.zeros((2*pnum),np.float)
 	for i in range(pnum):
-		A[2*i][0] = A[2*i+1][2] = pts1[i][0] # x
-		A[2*i][1] = A[2*i+1][3] = pts1[i][1] # y
+		A[2*i][0] = A[2*i+1][2] = pts_from[i][0] # x
+		A[2*i][1] = A[2*i+1][3] = pts_from[i][1] # y
 		A[2*i][4] = A[2*i+1][5] = 1 
-		b[2*i] = pts2[i][0]
-		b[2*i+1] = pts2[i][1]
+		b[2*i] = pts_to[i][0]
+		b[2*i+1] = pts_to[i][1]
+
+	print ' A is '
+	print A
+	print ' b is'
+	print b
 
 	res = np.linalg.lstsq(A,b)
+	print 'res is '
+	print res 
 
 	res_m = np.ndarray((2,2),np.float)
 	res_b = np.ndarray((2,1),np.float)
 
-	res_m[0,0]=res[0]
-	res_m[0,1]=res[1]
-	res_m[1,0]=res[2]
-	res_m[1,1]=res[3]
-	res_b[0,0]=res[4]
-	res_b[1,0]=res[5]
+	res_m[0,0]=res[0][0]
+	res_m[0,1]=res[0][1]
+	res_m[1,0]=res[0][2]
+	res_m[1,1]=res[0][3]
+	res_b[0,0]=res[0][4]
+	res_b[1,0]=res[0][5]
 
 	return res_m , res_b
 
 def transformAndAdd(img_static,img_trans,trans_m,trans_b):
-	hs,ws=img_static.shape
-	ht,wt=img_trans.shape
+	
+	print '[transformAndAdd] build the image'
+	img_static = np.int32(img_static)
+	img_trans = np.int32(img_trans)
+	hs,ws,ks=img_static.shape
+	ht,wt,kt=img_trans.shape
 
-	size = np.dot( trans_m , np.array([[ht],[wt]])) + trans_b
-	hr = np.int32(np.max(size[0,0],hs))
-	wr = np.int32(np.max(size[0,1],ws))
+	p0 = np.dot( trans_m , np.array([[0],[0]])) + trans_b
+	p1 = np.dot( trans_m , np.array([[0],[wt]])) + trans_b
+	p2 = np.dot( trans_m , np.array([[ht],[0]])) + trans_b
+	p3 = np.dot( trans_m , np.array([[ht],[wt]])) + trans_b
 
-	res_mat = np.ndarray((hr,wr,3),np.float)
+	trans_frame = (min(p0[0],p1[0],p2[0],p2[0]),min(p0[1],p1[1],p2[1],p2[1]),max(p0[0],p1[0],p2[0],p2[0]),max(p0[1],p1[1],p2[1],p2[1]))
 
-	res_mat[0:hs,0:ws,:] = np.float(img_static)
+	print trans_frame
+	
+	wr = np.int32(max(trans_frame[3],ws))
 
-	for i in range(ht):
-		for j in range(wt):
-			pt = np.dot(trans_m , np.array([[i],[j]])) + trans_b
-			px = pt[0,0]
-			py = pt[0,1]
-			if not check_in((px,py),(0,0,h-1,w-1)):
+	res_mat = np.zeros((hs,wr,3),np.int32)
+	trans_mat = res_mat.copy()
+	h , w , k = res_mat.shape
+
+	print res_mat.shape
+
+	res_mat[0:hs,0:ws,:] = img_static
+
+	print '[transformAndAdd] build the transform'
+
+	trans_m_t = inv(trans_m)
+
+	# print trans_m_t
+
+	# print np.dot(trans_m,trans_m_t)
+
+	# pt = np.dot( trans_m , np.array([[100] , [200]])) + trans_b
+
+	# ps = np.dot(trans_m_t , pt) - np.dot(trans_m_t ,trans_b )
+	# print pt 
+	# print ps
+
+	# for i in range(ht):
+	# 	for j in range(wt):
+	# 		pt = np.dot(trans_m , np.array([[i],[j]])) + trans_b
+	# 		px = np.int32(pt[0,0])
+	# 		py = np.int32(pt[1,0])
+	# 		if not check_in((px,py),(0,0,h-1,w-1)):
+	# 			continue;
+	# 		if check_in((px,py),(0,0,hs-1,ws-1)):
+	# 			ds = ws - py
+	# 			dt = py - trans_frame[1]
+	# 			# print ' ws %d py %d ds %d t %d py %d  tb %d' % (ws,py,ds,dt,py,trans_b[1,0])
+	# 			if ( dt + ds ) == 0 :
+	# 				trans_mat[px,py] = img_trans[i,j]
+	# 			else:
+	# 				trans_mat[px,py] = res_mat[px,py] * ds / (dt+ds) + img_trans[i,j] * dt  / (dt  + ds)
+	# 		else:
+	# 			trans_mat[px,py] = img_trans[i,j]
+
+	for i in range(h-1):
+		for j in range(w-1):
+			pt = np.dot(trans_m_t , np.array([[i],[j]])) - np.dot(trans_m_t ,trans_b )
+			px = np.int32(pt[0,0])
+			py = np.int32(pt[1,0])
+			# print ' i %d j %d px %d py %d ' %(i,j,px,py)
+			if not check_in((px,py),(0,0,ht-1,wt-1)):
 				continue;
-			if check_in((px,py),(0,0,hs-1,ws-1)):
-				ds = hs - px
-				dt = px - trans_b[0,1]
-				res_mat[px,py] = res_mat[px,py] * dt/(dt+ds)
-				res_mat[px,py] = res_mat[px,py] + img_trans[i,j] * ds / (dt + ds)
-			else:
-				res_mat[px,py] = img_trans[i,j]
+			trans_mat[i,j] = img_trans[px,py]
 
-			if res_mat[px,py] <= 0:
-				res_mat[px,py] = 1
-			if res_mat[px,py] >= 255:
-				res_mat[px,py] = 255
+	print '[transformAndAdd] merge the original with tranformed'
+	for i in range(1,h-1):
+		for j in range(1,w-1):
+			# if sum(trans_mat[i,j]) < 1 :
+			# 	if (sum(trans_mat[i+1,j]) > 100 or sum(trans_mat[i-1,j])) or (sum(trans_mat[i,j+1]) > 100 or sum(trans_mat[i,j-1])):
+			# 		trans_mat[i,j] = ( trans_mat[i+1,j] + trans_mat[i-1,j] + trans_mat[i,j+1] + trans_mat[i,j-1] ) /4
+			# if sum(trans_mat[i,j]) > 100 :
+			# 	res_mat[i,j] = trans_mat[i,j]
 
-	return np.int8(res_mat)
+			ds = ws - j
+			dt = j - trans_frame[1]
+			if ds > 0 and dt > 0: 
+				res_mat[i,j] = res_mat[i,j] * ds / (dt+ds) + trans_mat[i,j] * dt  / (dt  + ds)
+			elif ds <= 0 :
+				res_mat[i,j] = trans_mat[i,j]
+
+
+			if res_mat[i,j,0] <= 0:
+				res_mat[i,j,0] = 1
+			if res_mat[i,j,1] <= 0:
+				res_mat[i,j,1] = 1
+			if res_mat[i,j,2] <= 0:
+				res_mat[i,j,2] = 1
+			if res_mat[i,j,0] >= 255:
+				res_mat[i,j,0] = 255
+			if res_mat[i,j,1] >= 255:
+				res_mat[i,j,1] = 255
+			if res_mat[i,j,2] >= 255:
+				res_mat[i,j,2] = 255
+	print '[transformAndAdd] finished! '
+	return res_mat
 
 
     
